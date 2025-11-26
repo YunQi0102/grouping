@@ -1,6 +1,6 @@
-<div class="d-flex flex-column align-items-center">
-  <h5 class="mb-3">你是 <span>{{ drawNum }}</span> 號！</h5>
-  <button type="button" class="btn btn-primary grouping" (click)="nextNumber()">
+<div class="d-flex flex-column align-items-center" style="margin-top: 90px;">
+  <h1 class="mb-4">你是 <span>{{ drawNum }}</span> 號！</h1>
+  <button type="button" class="btn btn-primary grouping circle" (click)="nextNumber()">
     {{ remainingCount > 0 ? '下一抽' : '結束' }}
   </button>
 </div>

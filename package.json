@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build --base-href=/grouping/",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "prod": "npx ngh --dir=dist/grouping"
   },
   "private": true,
   "dependencies": {

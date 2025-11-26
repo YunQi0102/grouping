@@ -1,12 +1,17 @@
-<div class="d-flex flex-column align-items-center">
-  <h5 class="mb-3">請輸入總人數</h5>
-  <form class="row g-3 align-items-center">
-    <div class="col-auto">
-      <input #inputNum type="number" [(ngModel)]="inputValue" name="inputNum" class="form-control" min="2"
-        placeholder="例：12">
+<div class="d-flex justify-content-center align-items-center">
+  <form class="w-100">
+    <div class="row g-3 align-items-center">
+      <div class="col-7 pe-0">
+        <h4 class="mb-0 text-end">請輸入總人數：</h4>
+      </div>
+      <div class="col-5 ps-0">
+        <input #inputNum type="number" [(ngModel)]="inputValue" name="inputNum" class="form-control" min="2"
+          placeholder="例：12">
+      </div>
     </div>
-    <div class="col-auto">
-      <button type="button" class="btn btn-primary grouping" [disabled]="!inputValue || inputValue < 2"
+
+    <div class="d-flex flex-column align-items-center">
+      <button type="button" class="btn btn-primary grouping mt-4" [disabled]="!inputValue || inputValue < 2"
         (click)="submitNumber(inputNum.value)">送出</button>
 
       <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
