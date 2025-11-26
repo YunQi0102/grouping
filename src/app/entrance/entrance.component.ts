@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-entrance',
@@ -11,6 +12,13 @@ export class EntranceComponent {
 
   submitNumber(value: string) {
     const totalNumber = Number(value);
-    this.drawNum.emit(totalNumber);
+    if (totalNumber > 20) {
+      const modalElement = document.getElementById('submitModal');
+      const modal = new bootstrap.Modal(modalElement);
+      modal.show();
+      return;
+    } else {
+      this.drawNum.emit(totalNumber);
+    }
   }
 }

@@ -12,16 +12,14 @@ export class AppComponent {
   drawnNumbers: number[] = [];
 
   getNum(value: number) {
-    this.toResult = true;
     this.drawNum = value;
-
     this.totalNumber = value;
     this.drawNextNumber();
   }
 
   drawNextNumber() {
     // 檢查是否還有號碼可抽
-    if (this.drawnNumbers.length >= this.totalNumber) {
+    if (this.drawnNumbers.length == this.totalNumber) {
       this.reset();
       return;
     }

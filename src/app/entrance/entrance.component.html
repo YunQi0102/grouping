@@ -1,13 +1,27 @@
 <div class="d-flex flex-column align-items-center">
-  <h2>抽號器</h2>
+  <h5 class="mb-3">請輸入總人數</h5>
   <form class="row g-3 align-items-center">
     <div class="col-auto">
-      <input #inputNum type="number" [(ngModel)]="inputValue" name="inputNum" class="form-control" min="2" placeholder="請輸入總人數">
+      <input #inputNum type="number" [(ngModel)]="inputValue" name="inputNum" class="form-control" min="2"
+        placeholder="例：12">
     </div>
     <div class="col-auto">
-      <button type="button" class="btn btn-primary grouping"
-      [disabled]="!inputValue"
-      (click)="submitNumber(inputNum.value)">送出</button>
+      <button type="button" class="btn btn-primary grouping" [disabled]="!inputValue || inputValue < 2"
+        (click)="submitNumber(inputNum.value)">送出</button>
+
+      <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content px-1">
+            <div class="modal-header border-0 pb-0">
+              <h5 class="modal-title" id="submitModalLabel">總人數不得大於20</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer border-0 d-flex justify-content-center g-3">
+              <button type="button" class="btn btn-primary grouping" data-bs-dismiss="modal">確定</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </form>
 </div>
