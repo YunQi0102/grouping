@@ -13,12 +13,12 @@
 
         <div class="modal fade" id="resetModal" tabindex="-1" aria-labelledby="resetModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content px-1">
-              <div class="modal-header border-0 pb-0">
-                <h5 class="modal-title" id="resetModalLabel">確定要重設嗎？</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content px-1 py-2">
+              <div class="modal-header border-0 pb-0 d-flex flex-column align-items-center">
+                <img class="icon-reset" src="../assets/reset.png" alt="">
+                <h5 class="modal-title mt-3" id="resetModalLabel">確定要重設嗎？</h5>
               </div>
-              <div class="modal-footer border-0 d-flex justify-content-center g-3">
+              <div class="modal-footer border-0 d-flex justify-content-center">
                 <button type="button" class="btn btn-secondary grouping" data-bs-dismiss="modal">取消</button>
                 <button type="button" class="btn btn-primary grouping" data-bs-dismiss="modal"
                   (click)="reset()">確定</button>
@@ -33,7 +33,7 @@
 
 <div class="container my-4">
   <app-entrance *ngIf="!toResult" (drawNum)="getNum($event)"></app-entrance>
-  <app-result *ngIf="toResult" [drawNum]="drawNum" [remainingCount]="totalNumber - drawnNumbers.length"
-    (nextDraw)="drawNextNumber()"></app-result>
+  <app-result *ngIf="toResult" [drawNum]="drawNum" [totalNumber]="totalNumber" [drawnNumbers]="drawnNumbers"
+    [remainingCount]="totalNumber - drawnNumbers.length" (nextDraw)="drawNextNumber()"></app-result>
 </div>
 <router-outlet></router-outlet>
