@@ -1,12 +1,12 @@
-<div class="d-flex flex-column align-items-center">
-  <div class="d-flex flex-wrap justify-content-center gap-2">
+<div class="d-flex flex-column align-items-center" style="height: calc(100vh - 110px);">
+  <div class="d-flex flex-wrap justify-content-center gap-2 mb-2">
     <span *ngFor="let num of getAllNumbers()" class="badge fs-6 bg-primary" [class.opacity-25]="!isDrawn(num)">
       {{ num }}
     </span>
   </div>
-
-  <h1 [class]="{'my-5': totalNumber <= 16, 'my-4': totalNumber > 16}">你是 <span>{{ drawNum }}</span> 號</h1>
-  <button type="button" class="btn btn-primary grouping circle" (click)="nextNumber()">
-    {{ remainingCount > 0 ? '下一抽' : '結束' }}
-  </button>
+  <div class="d-flex flex-column flex-grow-1 justify-content-center align-items-center w-100"
+    [class]="{'pb-5': totalNumber <= 16, 'pb-4': totalNumber > 16}" (click)="nextNumber()">
+    <h1 class="my-5">你是 <span>{{ drawNum }}</span> 號</h1>
+    <h3 class="draw-hint mt-3 mb-5">{{ remainingCount > 0 ? '點擊螢幕抽下一號' : '點擊螢幕結束' }}</h3>
+  </div>
 </div>
