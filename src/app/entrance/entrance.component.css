@@ -1,6 +1,6 @@
 .number-buttons {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 15px;
   margin: 0 auto;
   padding: 0 15px;
@@ -31,4 +31,10 @@
   background-color: #42a78a;
   color: white;
   transform: scale(0.95);
+}
+
+@media (min-width: 768px) {
+  .number-buttons {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  }
 }
