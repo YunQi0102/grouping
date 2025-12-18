@@ -6,7 +6,8 @@
   </div>
   <div class="d-flex flex-column flex-grow-1 justify-content-center align-items-center w-100"
     [class]="{'pb-5': totalNumber <= 16, 'pb-4': totalNumber > 16}" (click)="nextNumber()">
-    <h1 class="my-5">你是 <span>{{ drawNum }}</span> 號</h1>
-    <h3 class="draw-hint mt-3 mb-5">{{ remainingCount > 0 ? '點擊螢幕抽下一號' : '點擊螢幕結束' }}</h3>
+    <h1 class="mt-4 mb-5">你是 <span>{{ drawNum }}</span> 號</h1>
+    <h3 class="draw-hint mt-3" [class]="{'mb-5': totalNumber <= 16, 'mb-4': totalNumber > 16}">{{ remainingCount >
+      0 ? '點擊螢幕抽下一號' : '點擊螢幕結束' }}</h3>
   </div>
 </div>
