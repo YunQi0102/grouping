@@ -9,16 +9,17 @@ declare var bootstrap: any;
 export class EntranceComponent {
   @Output() drawNum = new EventEmitter<number>();
   inputValue: number | null = null;
+  numbers: number[] = Array.from({ length: 18 }, (_, i) => i + 3);
 
-  submitNumber(value: string) {
-    const totalNumber = Number(value);
-    if (totalNumber > 20) {
+  submitNumber(value: number) {
+    this.inputValue = value;
+    if (value > 20) {
       const modalElement = document.getElementById('submitModal');
       const modal = new bootstrap.Modal(modalElement);
       modal.show();
       return;
     } else {
-      this.drawNum.emit(totalNumber);
+      this.drawNum.emit(value);
     }
   }
 }
