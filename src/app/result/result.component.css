@@ -1,3 +1,18 @@
+.badge {
+  line-height: 1;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  transition: all 0.3s ease;
+}
+
+.bg-primary {
+  background-color: #42a78a !important;
+}
+
 h1 span {
   font-size: 10rem;
   font-weight: bold;
