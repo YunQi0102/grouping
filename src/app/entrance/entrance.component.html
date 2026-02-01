@@ -1,32 +1,15 @@
-<div class="d-flex justify-content-center align-items-center">
-  <form class="w-100">
-    <div class="row g-3 align-items-center">
-      <div class="col-7 pe-0 pe-md-2">
-        <h4 class="mb-0 text-end">請輸入總人數：</h4>
-      </div>
-      <div class="col-5 ps-0">
-        <input #inputNum type="number" [(ngModel)]="inputValue" name="inputNum" class="form-control" min="2"
-          placeholder="例：12">
+<form class="w-100 d-flex flex-column" style="height: calc(100vh - 110px);">
+  <div class="row g-4 align-items-center">
+    <div class="col-12">
+      <h4 class="mb-0 text-center">請選擇總人數</h4>
+    </div>
+    <div class="col-12">
+      <div class="number-buttons">
+        <button *ngFor="let num of numbers" type="button" class="btn number-btn" [class.active]="inputValue === num"
+          (click)="submitNumber(num)">
+          {{ num }}
+        </button>
       </div>
     </div>
-
-    <div class="d-flex flex-column align-items-center">
-      <button type="button" class="btn btn-primary grouping mt-4" [disabled]="!inputValue || inputValue < 2"
-        (click)="submitNumber(inputNum.value)">送出</button>
-
-      <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content px-1 py-2">
-            <div class="modal-header border-0 pb-0 d-flex flex-column align-items-center">
-              <img class="icon-badminton" src="assets/badminton.png">
-              <h5 class="modal-title mt-3" id="submitModalLabel">總人數不得大於20</h5>
-            </div>
-            <div class="modal-footer border-0 d-flex justify-content-center">
-              <button type="button" class="btn btn-primary grouping" data-bs-dismiss="modal">確定</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
-</div>
+  </div>
+</form>
